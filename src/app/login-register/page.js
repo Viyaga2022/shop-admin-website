@@ -1,9 +1,17 @@
-import React from 'react'
+import './login-register.scss'
+import Panels from '@/components/login-register/panels/Panels';
+import Forms from '@/components/login-register/forms/Forms';
 
-const page = () => {
-  return (
-    <div>Login Register</div>
-  )
+const LoginRegister = () => {
+
+    return (
+        <>
+            <div className="container">
+                <Forms />
+                <Panels />
+            </div>
+        </>
+    )
 }
 
-export default page
+export default LoginRegister
