@@ -1,12 +1,17 @@
-import './leftPanel.scss'
 import SignUpBtn from './signUpBtn/SignUpBtn'
 
-const LeftPanel= () => {
+const LeftPanel = () => {
     return (
-        <div>
-        <h1>LeftPanel</h1>
-        <SignUpBtn />
-    </div>
+        <div className="panel left-panel">
+            <div className="content">
+                <h3>New here ?</h3>
+                <p>
+                    Don&apos;t Have An Account ?
+                </p>
+                <SignUpBtn />
+            </div>
+            <img src="/login.svg" className="image" alt="" />
+        </div>
     )
 }
 

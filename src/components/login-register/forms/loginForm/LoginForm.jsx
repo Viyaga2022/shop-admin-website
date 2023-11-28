@@ -1,4 +1,3 @@
-import './loginForm.scss'
 import { MdEmail, MdLock } from "react-icons/md";
 import { FaGoogle, FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 

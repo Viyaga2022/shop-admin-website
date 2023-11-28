@@ -1,4 +1,3 @@
-import './registerForm.scss'
 import { FaShop } from "react-icons/fa6";
 import { MdEmail, MdOutlineSmartphone, MdLock, MdPerson } from "react-icons/md";
 

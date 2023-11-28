@@ -1,4 +1,3 @@
-import './signUpBtn.scss'
 
 const SignUpBtn = () => {
   return (

@@ -1,4 +1,3 @@
-import './forms.scss'
 import LoginForm from './loginForm/LoginForm'
 import RegisterForm from './registerForm/RegisterForm'
 
