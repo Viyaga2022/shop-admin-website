@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import SignInBtn from './signInBtn/SignInBtn'
+import RegisterImg from '@/images/register.svg'
 
 const RightPanel = () => {
   return (
@@ -10,7 +12,7 @@ const RightPanel = () => {
         </p>
         <SignInBtn />
       </div>
-      <img src="/register.svg" className="image" alt="" />
+      <Image src={RegisterImg} className="image" alt="" />
     </div>
   )
 }

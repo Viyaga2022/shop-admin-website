@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import SignUpBtn from './signUpBtn/SignUpBtn'
+import LoginImg from '@/images/login.svg'
 
 const LeftPanel = () => {
     return (
@@ -10,7 +12,7 @@ const LeftPanel = () => {
                 </p>
                 <SignUpBtn />
             </div>
-            <img src="/login.svg" className="image" alt="" />
+            <Image src={LoginImg} className="image" alt="" />
         </div>
     )
 }
