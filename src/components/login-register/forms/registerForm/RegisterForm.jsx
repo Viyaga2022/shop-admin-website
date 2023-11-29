@@ -1,9 +1,20 @@
+"use client"
+
 import { FaShop } from "react-icons/fa6";
 import { MdEmail, MdOutlineSmartphone, MdLock, MdPerson } from "react-icons/md";
+import { useFormState } from "react-dom";
+import toast from "react-hot-toast";
+
+const onsubmit = async (prevState, formData) => {
+    const { shopName, phone } = Object.fromEntries(formData)
+    console.log({ shopName, phone });
+}
 
 const RegisterForm = () => {
+    const [state, formAction] = useFormState(onsubmit, {})
+    
     return (
-        <form action="" className="sign-up-form" id="sign-up-form">
+        <form action={formAction} className="sign-up-form" id="sign-up-form">
             <h2 className="title">Register</h2>
             <div className="input-field">
                 <span className='icon'><FaShop size={22} /></span>

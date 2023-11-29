@@ -1,5 +1,7 @@
+import ForgotPassword from './forgotPassword/ForgotPassword'
 import LoginForm from './loginForm/LoginForm'
 import RegisterForm from './registerForm/RegisterForm'
+import SubAdminLogin from './subAdminLogin/SubAdminLogin'
 
 const Forms = () => {
     return (
@@ -7,6 +9,8 @@ const Forms = () => {
             <div className="signin-signup">
                 <LoginForm />
                 <RegisterForm />
+                <SubAdminLogin />
+                <ForgotPassword />
             </div>
         </div>
     )
