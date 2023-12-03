@@ -15,7 +15,7 @@ const RegisterForm = () => {
     const { isLoading } = useSelector((state) => state.admin)
     const dispatch = useDispatch()
 
-    const formAction = (formData) => {
+    const registerAction = (formData) => {
         const { adminName, email, phone, password, cpassword, viyagaManager } = Object.fromEntries(formData)
 
         if (!adminName || !email || !phone || !password || !cpassword || !viyagaManager) {
@@ -31,7 +31,7 @@ const RegisterForm = () => {
 
     console.log(reRender++)
     return (
-        <form action={formAction} className="sign-up-form" id="sign-up-form">
+        <form action={registerAction} className="sign-up-form" id="sign-up-form">
             <h2 className="title">Register</h2>
             <div className="input-field">
                 <span className='icon'><FaShop size={22} /></span>
