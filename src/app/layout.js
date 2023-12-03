@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>{children}</ReduxProvider>
-        <Toaster position='top-right' />
+        <Toaster position='top-center' toastOptions={{ duration: 3000 }} />
       </body>
     </html>
   )
