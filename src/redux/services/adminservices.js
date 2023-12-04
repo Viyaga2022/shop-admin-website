@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
-import { errorResponse } from "./commonServices";
+import { errorResponse, setAxiosHeader } from "./commonServices";
 
 const baseUrl = process.env.NEXT_PUBLIC_SERVER_ONE + "/admin"
 
@@ -28,4 +28,19 @@ const loginAdmin = createAsyncThunk(
     }
 )
 
-export { registerAdmin, loginAdmin }
+const getAdmin = createAsyncThunk(
+    'admin/account',
+    async (token, { rejectWithValue }) => {
+
+        setAxiosHeader(token)
+
+        try {
+            const res = await axios.post(`${baseUrl}/getAdmin`)
+            return res.data
+        } catch (error) {
+            return rejectWithValue(errorResponse(error))
+        }
+    }
+)
+
+export { registerAdmin, loginAdmin, getAdmin }

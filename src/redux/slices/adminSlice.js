@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerAdmin, loginAdmin } from "../services/adminservices";
+import { registerAdmin, loginAdmin, getAdmin } from "../services/adminservices";
 import toast from "react-hot-toast";
 
 const initialState = {
@@ -52,6 +52,19 @@ const adminSlice = createSlice({
                 localStorage.setItem('adminAuth', action.payload?.token)
             })
             .addCase(loginAdmin.rejected, (state, action) => {
+                state.isLoading = false
+                toast.error(action.payload)
+            })
+
+             // Login Admin ====================
+             .addCase(getAdmin.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(getAdmin.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.admin = action.payload?.admin
+            })
+            .addCase(getAdmin.rejected, (state, action) => {
                 state.isLoading = false
                 toast.error(action.payload)
             })

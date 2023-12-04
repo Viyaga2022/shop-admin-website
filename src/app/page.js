@@ -1,9 +1,9 @@
-import { redirect } from "next/navigation"
+import PageLoading from '@/components/loadingEffects/pageLoading/PageLoading'
 
-export default function Home() {
-  redirect('/dashboard')
-  
+const page = () => {
   return (
-    <h1>Home</h1>
+    <PageLoading />
   )
 }
+
+export default page

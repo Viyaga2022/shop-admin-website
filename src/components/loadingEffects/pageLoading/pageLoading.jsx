@@ -1,9 +1,14 @@
-import React from 'react'
+"use client"
 
-const pageLoading = () => {
+import { ScaleLoader } from "react-spinners"
+import './pageLoading.scss'
+
+const PageLoading = () => {
   return (
-    <div>pageLoading</div>
+    <div className="scaleLoader">
+      <ScaleLoader color="#fff" radius={2} />
+    </div>
   )
 }
 
-export default pageLoading
+export default PageLoading
