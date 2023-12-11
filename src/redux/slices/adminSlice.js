@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerAdmin, loginAdmin, getAdmin } from "../services/adminservices";
+import { registerAdmin, loginAdmin, getAdmin, loginSubAdmin } from "../services/adminservices";
 import toast from "react-hot-toast";
 
 const initialState = {
     admin: null,
+    subAdmin: null,
     isLoading: false,
     message: {}
 }
@@ -46,18 +47,19 @@ const adminSlice = createSlice({
                 state.isLoading = true
             })
             .addCase(loginAdmin.fulfilled, (state, action) => {
+                const token = JSON.stringify(action.payload.token)
                 state.isLoading = false
-                state.admin = action.payload?.admin
-                toast.success(action.payload?.success)
-                localStorage.setItem('adminAuth', action.payload?.token)
+                state.admin = action.payload.admin
+                localStorage.setItem('auth', token)
+                toast.success(action.payload.success)
             })
             .addCase(loginAdmin.rejected, (state, action) => {
                 state.isLoading = false
                 toast.error(action.payload)
             })
 
-             // Login Admin ====================
-             .addCase(getAdmin.pending, (state) => {
+            // Get Admin ====================
+            .addCase(getAdmin.pending, (state) => {
                 state.isLoading = true
             })
             .addCase(getAdmin.fulfilled, (state, action) => {
@@ -68,9 +70,26 @@ const adminSlice = createSlice({
                 state.isLoading = false
                 toast.error(action.payload)
             })
+
+            // Sub Admin Login ====================
+            .addCase(loginSubAdmin.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(loginSubAdmin.fulfilled, (state, action) => {
+                const token = JSON.stringify(action.payload.token)
+                
+                state.isLoading = false
+                state.subAdmin = action.payload.subAdmin
+                localStorage.setItem('auth', token)
+                toast.success(action.payload.success)
+            })
+            .addCase(loginSubAdmin.rejected, (state, action) => {
+                state.isLoading = false
+                toast.error(action.payload)
+            })
     }
 })
 
-export { registerAdmin, loginAdmin }
+export { registerAdmin, loginAdmin, getAdmin, loginSubAdmin }
 export const { reset, logout } = adminSlice.actions
 export default adminSlice.reducer

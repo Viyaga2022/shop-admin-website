@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import '@/styles/globals.scss'
+import '@/styles/global.scss'
 import { Toaster } from 'react-hot-toast'
 import ReduxProvider from '@/redux/ReduxProvider'
 

@@ -26,17 +26,19 @@ const LoginForm = () => {
 
     useEffect(() => {
         if (admin) {
-            navigation.replace('/dashboard')
+            console.log(admin.adminName);
+            navigation.replace('/admin')
         }
+
     }, [admin])
-    
+
     const loginAction = (formData) => {
         const { email, password } = Object.fromEntries(formData)
 
         if (!email || !password) {
             return toast.error("Please Enter The Required Field")
         }
-        console.log({ email, password });
+        
         const adminData = { email, password }
         dispatch(loginAdmin(adminData))
     }
