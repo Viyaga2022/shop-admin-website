@@ -23,6 +23,7 @@
     overflow-y: scroll;
     background-color: $main-bg;
     z-index: 999;
+    transition: all .2s ease;
 
     @include lg {
         width: 90px;
